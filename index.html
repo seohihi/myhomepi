@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>삐약이 개발자의 포트폴리오 🐥</title>
+
+  <!-- 웹 폰트 및 폰트어썸 아이콘 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- 스타일시트 분리 연결 -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- 자바스크립트 defer 연결 -->
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <!-- [요구사항 2] 시맨틱 헤더 & Flexbox 네비게이션 -->
+  <header id="header" class="header">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">🐥 삐약코딩</a>
+      
+      <nav class="nav-menu" id="nav-menu">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#hero" class="nav-link">홈</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link">소개</a></li>
+          <li class="nav-item"><a href="#skills" class="nav-link">스킬</a></li>
+          <li class="nav-item"><a href="#projects" class="nav-link">프로젝트</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">연락처</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- 다크모드 토글 버튼 -->
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="다크 모드 전환">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <!-- 모바일 햄버거 버튼 -->
+        <button id="hamburger-btn" class="hamburger-btn" aria-label="모바일 메뉴 열기">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- [요구사항 2] 1. Hero 섹션 -->
+    <section id="hero" class="section hero-section animate-target">
+      <div class="container hero-content">
+        <div class="hero-badge">🐣 알을 깨고 나온 주니어 개발자</div>
+        <h1 class="hero-title">
+          안녕하세요!<br>
+          매일 성장하는 병아리 코더 <span class="highlight">삐약이</span>입니다.
+        </h1>
+        <p class="hero-subtitle">
+          기초가 단단한 둥지를 짓듯, 탄탄한 웹 원리로 더 넓은 세상을 향해 날갯짓합니다.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">둥지 속 작업물 보기 🐥</a>
+          <a href="#contact" class="btn btn-secondary">모이 주기(연락하기) 🌾</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- [요구사항 2] 2. About 섹션 -->
+    <section id="about" class="section about-section animate-target">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-grid">
+          <div class="about-avatar-box">
+            <span class="chick-avatar" role="img" aria-label="병아리 캐릭터">🐥</span>
+          </div>
+          <div class="about-text">
+            <h3>"모이를 쪼듯 한 줄 한 줄 코드를 익힙니다"</h3>
+            <p>
+              라이브러리에 의존하기 전, 순수 바닐라 JS의 이벤트와 DOM 원리를 먼저 이해하는 단단한 기본기를 지향합니다.
+            </p>
+            <p>
+              실패를 두려워하지 않고 한 걸음씩 뒤뚱뒤뚱 전진하며 함께 일하고 싶은 든든한 닭(?)으로 성장하고 있습니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- [요구사항 2] 3. Skills 섹션 -->
+    <section id="skills" class="section skills-section animate-target">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3>🌱 프론트엔드 새싹 스킬</h3>
+            <ul class="skill-list">
+              <li>HTML5 (의미 있는 시맨틱 태그 설계)</li>
+              <li>CSS3 (Flexbox, Grid & 모바일 반응형)</li>
+              <li>JavaScript (ES6+, DOM 조작, 비동기 API)</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h3>🛠️ 둥지 가꾸기 도구</h3>
+            <ul class="skill-list">
+              <li>Git & GitHub (형상 관리 및 협업)</li>
+              <li>VS Code (개발 생산성 및 Live Server)</li>
+              <li>GitHub Pages (웹 무료 배포)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- [요구사항 2, 8] 4. Projects 섹션 (GitHub API 연동 영역) -->
+    <section id="projects" class="section projects-section animate-target">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-desc">GitHub 저장소에서 실시간으로 불러온 프로젝트 목록입니다.</p>
+        
+        <!-- JavaScript로 동적 렌더링될 컨테이너 (로딩/성공/에러/빈 상태) -->
+        <div id="projects-container" class="projects-grid">
+          <div class="loading-state">
+            <i class="fa-solid fa-spinner fa-spin loading-spinner"></i>
+            <p>병아리가 저장소 모이를 물어오는 중입니다...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- [요구사항 2, 6] 5. Contact 섹션 (폼 UX 및 실시간 input 검증) -->
+    <section id="contact" class="section contact-section animate-target">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <form id="contact-form" class="contact-form" novalidate>
+          <div class="form-group">
+            <label for="user-name">이름 (보내는 분)</label>
+            <input type="text" id="user-name" name="name" placeholder="예: 어미닭" required>
+            <span class="error-message" id="name-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="user-email">이메일</label>
+            <input type="email" id="user-email" name="email" placeholder="example@email.com" required>
+            <span class="error-message" id="email-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="user-message">전할 메시지</label>
+            <textarea id="user-message" name="message" rows="5" placeholder="삐약이에게 전할 조언이나 안부 인사를 남겨주세요." required></textarea>
+            <span class="error-message" id="message-error"></span>
+          </div>
+
+          <button type="submit" class="btn btn-primary submit-btn">편지 전송하기 💌</button>
+          <div id="form-success" class="form-success hidden" role="alert">
+            삐약! 메시지가 성공적으로 전송되었습니다! 🐥
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- [요구사항 2] 6. Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p class="copyright">&copy; 2026 삐약이. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- [요구사항 5-c] 맨 위로 가기 버튼 (300px 이상 노출) -->
+  <button id="scroll-top-btn" class="scroll-top-btn" aria-label="맨 위로 이동">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+</body>
+</html>
